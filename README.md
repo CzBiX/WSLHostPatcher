@@ -1,10 +1,10 @@
 # WSLHostPatcher
-Dynamic patch `wslhost.exe` to listen port on any interfaces.
+Dynamic patch WSL2 to listen port on any interfaces.
 
 # How it work
-The localhost port actually forward by wslhost.exe on Windows, but it listen on localhost only.
+The localhost port actually forward by `wslhost.exe` on Windows, but it listen on localhost only.
 
-WSLHostPatcher will scan all wslhost.exe processes, then inject into it to hook `bind` API  listen on any IP.
+WSLHostPatcher will scan all `wslhost.exe` processes, then inject into it to hook `bind` API  listen on any IP.
 There is no any background processes neither cost any performance.
 
 # How to use

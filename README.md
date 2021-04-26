@@ -8,7 +8,7 @@ WSLHostPatcher will scan all `wslhost.exe` processes, then inject into it to hoo
 There is no any background processes neither cost any performance.
 
 # How to use
-Download release and unzip it on Windows. Run `WSLHostPatcher.exe` after WSL2 started.
+Download [release](https://github.com/CzBiX/WSLHostPatcher/releases/latest) and unzip it on Windows. Run `WSLHostPatcher.exe` after WSL2 started.
 
 You can also put it in your `.profile`, so it will run automatically.
 

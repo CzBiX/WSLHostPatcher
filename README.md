@@ -1,6 +1,11 @@
 # WSLHostPatcher
 Dynamic patch WSL2 to listen port on any interfaces.
 
+# Updates
+Check out experimental bridge solution at https://github.com/microsoft/WSL/issues/4150#issuecomment-1018524753.
+
+Also [MS official config](https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig) for WSL 2 in Windows Build 19041 and later.
+
 # How it work
 The localhost port actually forward by `wslhost.exe` on Windows, but it listen on localhost only.
 

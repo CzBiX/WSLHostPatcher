@@ -22,3 +22,5 @@ You can also put it in your `.profile`, so it will run automatically, see [#1](h
 
 # Security Consideration
 Listen port on any interfaces may cause some security problems. You are on your own.
+
+Anti-virus software may alert, see [discussion](https://github.com/CzBiX/WSLHostPatcher/discussions/16).

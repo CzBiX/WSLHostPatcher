@@ -31,7 +31,7 @@ bool listWslHosts(vector<DWORD>* pids)
 	}
 
 	do {
-		if (_wcsicmp(pe32.szExeFile, L"wslhost.exe") == 0) {
+		if (_wcsicmp(pe32.szExeFile, L"wslhost.exe") == 0) || (_wcsicmp(pe32.szExeFile, L"wslrelay.exe") == 0) {
 			pids->push_back(pe32.th32ProcessID);
 		}
 	} while (Process32Next(hProcessSnap, &pe32));

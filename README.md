@@ -15,7 +15,13 @@ There is no any background processes neither cost any performance.
 # How to use
 Download [release](https://github.com/CzBiX/WSLHostPatcher/releases/latest) and unzip it on Windows. Run `WSLHostPatcher.exe` after WSL2 started.
 This patch needs to running on every time WSL starts, and only the ports listening after running patch will work.
-You can also put it in your `.profile`, so it will run automatically, see [#1](https://github.com/CzBiX/WSLHostPatcher/issues/1).
+You can also do one of the following two things to make it run automatically:
+1. put it in your `.profile` - see [#1](https://github.com/CzBiX/WSLHostPatcher/issues/1).
+2. put it in `/etc/wsl.conf` (suitable for auto-run services like ssh - runs on boot):
+```
+[boot]
+command=<path to WSLHostPatcher.exe>
+```
 
 # How to restore
 `wsl --shutdown` or Reboot system.

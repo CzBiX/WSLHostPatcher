@@ -162,22 +162,33 @@ int wmain()
 	vector<DWORD> pids;
 	listWslHosts(&pids);
 
-	wcout << "Found " << pids.size() << " WSL host" << endl;
+	wcout << "Found " << pids.size() << " wslhost/wslrelay" << endl;
 
 	int patchedCount = 0;
 	for (const auto& pid : pids)
 	{
 		HANDLE process = attachProcess(pid);
+		if (!process)
+		{
+			wcout << "Attach pid " << pid << " error: " << GetLastError() << endl;
+			continue;
+		}
+
 		auto injected = getInjectedModule(process, dllPath);
 		if (!injected.has_value())
 		{
-			return -1;
+			wcout << "getInjectedModule from pid " <<  pid << " error" << endl;
+			CloseHandle(process);
+			continue;
 		}
 
 		if (injected.value() == nullptr) {
-			injectProcess(process, dllPath);
+			if (!injectProcess(process, dllPath)) {
+				wcout << "Inject pid " << pid << " error" << endl;
+				CloseHandle(process);
+				continue;
+			}
 		}
-
 		CloseHandle(process);
 		patchedCount++;
 	}
